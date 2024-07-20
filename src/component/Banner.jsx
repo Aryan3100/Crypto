@@ -4,7 +4,7 @@ import Crausal from './Crausal'
 
 export const Banner = () => {
   return (
-    <div style={{backgroundImage: 'url(./banner2.webp)' }}>
+    <div style={{backgroundImage: 'url(./banner3.jpg)' , filter:'inherit'}}>
         <Container style={{ height:300, display:'flex', flexDirection:'column', paddingTop:25,
             justifyContent:'space-between', alignItems:'center' , 
          }} >
@@ -22,7 +22,7 @@ export const Banner = () => {
                </Typography>
             </div>
             <Crausal></Crausal>
-            
+
          </Container>
     </div>
   )

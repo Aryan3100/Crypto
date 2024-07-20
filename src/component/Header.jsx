@@ -2,6 +2,7 @@ import { AppBar, Button, Container, createTheme, MenuItem, Select, ThemeProvider
 import React, { useState } from 'react'
 import { unstable_HistoryRouter } from 'react-router-dom'
 import { CryotoState } from '../context/Crypto'
+import Login from './Login'
 
 const Header = () => {
 
@@ -33,8 +34,9 @@ const Header = () => {
                 Crypto
             </Typography>
 
-            <Button color='primary' variant="outlined"  style={{width:100,height:40,marginRight:10,color:'black',fontWeight:"bold"
-           }}>LogIn</Button>
+            {/* <Button color='primary' variant="outlined"  style={{width:100,height:40,marginRight:10,color:'black',fontWeight:"bold"
+           }}>LogIn</Button> */}
+           <Login></Login>
 
            {/* <Select variant='outlined'
            style={{width:100,height:40,marginRight:10,

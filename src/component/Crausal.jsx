@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { trending, TrendingCoins } from '../config/api'
 import AliceCarousel from 'react-alice-carousel'
 import { Link } from 'react-router-dom'
+import { green, red } from '@mui/material/colors'
 
 
 
@@ -20,7 +21,9 @@ const Crausal = () => {
         fetch();
     }, [])
     console.log(dat)
+   
     const items = dat.map((coin, index) => {
+        let profit = coin.price_change_percentage_24h>= 0;
         return (
             <Link to={`/conis/${coin.id}`}  >
                 <img src={coin?.image}
@@ -28,7 +31,12 @@ const Crausal = () => {
                     height='80'
                     style={{ marginBottom: 10, }}
                 />
-                <span>{coin.symbol}</span>
+                <span style={{textTransform:'uppercase'}}>{coin.symbol}
+                    &nbsp;
+                <span 
+                  style={{color: profit > 0? green[900] : red[900] , fontWeight:'bolder'}}
+                >{profit && '+'}{coin?.price_change_percentage_24h.toFixed(2)} </span>
+                </span>
                 <span style={{ fontSize: 22, fontWeight: 500 }}>
                     {coin?.current_price.toFixed(2)}
                 </span>

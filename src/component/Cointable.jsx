@@ -24,17 +24,13 @@ const Cointable = () => {
     useEffect(() => {
         table();
     }, [])
-    console.log(fetch)
-    
+
     const handleSearch = () => {
         return fetch.filter((row) => (
             row.name.toLowerCase().includes(input) || row.symbol.toLowerCase().includes(input)
-            
         ))
     }
-
-    
-
+console.log(input)
     return (
         <Container style={{ textAlign: 'center' }}>
             <Typography
@@ -67,7 +63,7 @@ const Cointable = () => {
                         </TableHead>
                         <TableBody>
                             {handleSearch().map((row) => {
-                                const profit = row.price_change_percentage_24h > 0;
+                                let profit = row.price_change_percentage_24h > 0
                                 return (
                                     <TableRow >
                                         <TableCell>
@@ -84,8 +80,8 @@ const Cointable = () => {
                                         <TableCell align='right' style={{fontSize:16}} >
                                                   {row.current_price}
                                         </TableCell>
-                                        <TableCell align='right' style={{color: profit > 0 ? green : red }} >
-                                                  {row.price_change_percentage_24h.toFixed(2)}%
+                                        <TableCell align='right' style={{color: profit > 0 ? green[900] : red[900] }} >
+                                                {profit && '+'}  {row.price_change_percentage_24h.toFixed(2)}%
                                         </TableCell>
                                         <TableCell align='right' style={{fontSize:16}}>
                                                  {row.market_cap.toString().slice(0, -6)}M
